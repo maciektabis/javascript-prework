@@ -1,6 +1,7 @@
+
 let playerScore = 0;
 let computerScore = 0;
-
+{
 function getMoveName(argMoveId){
     if(argMoveId == 1){
       return 'kamień';
@@ -13,7 +14,7 @@ function getMoveName(argMoveId){
       }
 }
 
-function displayResult(argComputerMove, argPlayerMove){
+const displayResult = function (argComputerMove, argPlayerMove){
     console.log('moves:', argComputerMove, argPlayerMove);
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
@@ -52,14 +53,14 @@ function displayResult(argComputerMove, argPlayerMove){
     }
 }
 
-function playGame(playerInput) {
+const playGame = function (playerInput) {
     clearMessages();
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log('Wylosowana liczba to:' + randomNumber);
-    let computerMove = getMoveName(randomNumber); //1 -> 'papier'
+    const computerMove = getMoveName(randomNumber); //1 -> 'papier'
     printMessage('Mój ruch to: ' + computerMove);
-    let playerMove = getMoveName(playerInput);
+    const playerMove = getMoveName(playerInput);
     printMessage('Twój ruch to: ' + playerMove)
 
     displayResult(computerMove, playerMove);
@@ -73,3 +74,6 @@ let btnPaper = document.getElementById('btn-paper');
 btnPaper.addEventListener('click', function() { playGame(2) });
 let btnScissors = document.getElementById('btn-scissors');
 btnScissors.addEventListener('click', function() { playGame(3) });
+
+
+}
